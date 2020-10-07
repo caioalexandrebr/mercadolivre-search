@@ -1,0 +1,31 @@
+.breadcrumb {
+  background-color: $gray-charlie;
+  margin-bottom: 0;
+
+  span {
+    color: $gray-bravo;
+    font-size: 14px;
+
+    &:after {
+      content: '>';
+      margin: 0 10px;
+    }
+
+    &:last-child {
+      &:after {
+        content: none;
+      }
+    }
+  }
+
+  a {
+    color: $gray-bravo;
+    font-size: 14px;
+    text-decoration: none;
+    transition: color 0.2s;
+
+    &:hover {
+      color: $gray-alpha;
+    }
+  }
+}

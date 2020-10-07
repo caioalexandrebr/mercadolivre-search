@@ -10,6 +10,7 @@ $gray-bravo: #999999;
 $gray-charlie: #EEEEEE;
 
 // Components
+@import '../components/Breadcrumb/style';
 @import '../components/Header/style';
 @import '../components/List/style';
 

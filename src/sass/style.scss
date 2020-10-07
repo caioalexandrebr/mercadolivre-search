@@ -1,0 +1,17 @@
+@import 'node_modules/bootstrap-scss/bootstrap.scss';
+
+$white: white;
+$black: black;
+
+$alpha: #fff159;
+
+$gray-alpha: #333333;
+$gray-bravo: #999999;
+$gray-charlie: #EEEEEE;
+
+// Components
+@import '../components/Header/style';
+
+body {
+  background: $white;
+}

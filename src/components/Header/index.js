@@ -1,5 +1,7 @@
 import React from 'react';
-import './style.scss'
+
+import Logo from '../../img/logo.svg';
+import Search from '../../img/search.png';
 
 function Header() {
   return (
@@ -7,7 +9,15 @@ function Header() {
       <div className='container'>
         <div className='row'>
           <div className='col-12'>
-            Olá mundo!
+            <div className='header__content'>
+              <a className='header__logo' href='/'>
+                <img src={Logo} alt='Mercado Livre' />
+              </a>
+              <form className='header__form'>
+                <input className='header__input' placeholder='Buscar produtos, marcas e muito mais…' />
+                <button className='header__button'><img src={Search} alt='Search' /></button>
+              </form>
+            </div>
           </div>
         </div>
       </div>

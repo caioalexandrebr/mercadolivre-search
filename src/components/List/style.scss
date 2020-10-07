@@ -1,0 +1,25 @@
+.list {
+  &__content {
+    margin: 0;
+    padding: 0;
+  }
+
+  &__card {
+    background: $white;
+    border-bottom: 1px solid $gray-charlie;
+    list-style: none;
+    min-height: 200px;
+    padding: 20px 50px 20px 0;
+    position: relative;
+    width: 100%;
+
+    &:first-child {
+      border-radius: 4px 4px 0 0;
+    }
+
+    &:last-child {
+      border-bottom: 0;
+      border-radius: 0 0 4px 4px;
+    }
+  }
+}

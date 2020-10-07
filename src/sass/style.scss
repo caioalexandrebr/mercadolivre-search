@@ -11,7 +11,8 @@ $gray-charlie: #EEEEEE;
 
 // Components
 @import '../components/Header/style';
+@import '../components/List/style';
 
 body {
-  background: $white;
+  background: $gray-charlie;
 }

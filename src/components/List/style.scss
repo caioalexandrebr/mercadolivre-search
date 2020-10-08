@@ -7,9 +7,10 @@
   &__card {
     background: $white;
     border-bottom: 1px solid $gray-charlie;
+    display: flex;
+    height: 220px;
     list-style: none;
-    min-height: 200px;
-    padding: 20px 50px 20px 0;
+    padding: 16px 8px;
     position: relative;
     width: 100%;
 
@@ -21,5 +22,44 @@
       border-bottom: 0;
       border-radius: 0 0 4px 4px;
     }
+  }
+
+  &__image {
+    border-radius: 6px;
+    margin: 0 8px;
+    overflow: hidden;
+    position: relative;
+    width: 140px;
+
+    img {
+      left: 50%;
+      margin: 0 auto;
+      max-height: 100%;
+      max-width: 100%;
+      position: absolute;
+      top: 50%;
+      transform: translate(-50%,-50%);
+    }
+  }
+
+  &__description {
+    flex: 1;
+  }
+
+  &__price {
+    color: $gray-alpha;
+    font-weight: bold;
+    margin-bottom: 16px;
+  }
+
+  &__title {
+    color: $gray-alpha;
+    margin-bottom: 16px;
+  }
+
+  &__address {
+    color: $gray-bravo;
+    font-size: 12px;
+    margin-bottom: 0;
   }
 }

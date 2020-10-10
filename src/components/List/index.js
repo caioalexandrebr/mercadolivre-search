@@ -7,10 +7,26 @@ class List extends Component {
     products: [],
   }
 
-  async componentDidMount() {
-    const response = await axios.get('https://api.mercadolibre.com/sites/MLA/search?q=laptop&limit=4');
-    console.log(response.data.results);
-    this.setState({ products: response.data.results });
+  constructor() {
+    super();
+    this.fetchUser = this.fetchProducts.bind(this);
+  }
+
+  fetchProducts = (params) => {
+    return axios({
+      method: 'get',
+      url: `https://api.mercadolibre.com/sites/MLA/search?q=${params}&limit=4`
+    })
+    .then(response => {
+      this.setState({ products: response.data.results });
+    })
+  }
+
+  componentDidMount() {
+    setTimeout(() => {
+      const params = this.props.params;
+      this.fetchProducts(params);
+    });
   }
 
   render() {

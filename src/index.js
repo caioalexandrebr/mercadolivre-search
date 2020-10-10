@@ -9,25 +9,16 @@ import {
 } from 'react-router-dom';
 
 import Header from './components/Header';
-import Breadcrumb from './components/Breadcrumb';
-import List from './components/List';
+import Home from './pages/Home';
+import Search from './pages/Search';
 
 ReactDOM.render(
   <React.StrictMode>
     <Header />
     <Router>
       <Switch>
-        <Route exact path="/">
-          <h1>Home</h1>
-        </Route>
-        <Route path="/search">
-          <Breadcrumb />
-          <List />
-        </Route>
-        <Route path="/product">
-          <Breadcrumb />
-          <h1>Product</h1>
-        </Route>
+        <Route exact path="/" component={Home} />
+        <Route path="/:id" component={Search} />
       </Switch>
     </Router>
   </React.StrictMode>,

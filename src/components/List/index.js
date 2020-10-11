@@ -18,6 +18,7 @@ class List extends Component {
       url: `https://api.mercadolibre.com/sites/MLA/search?q=${params}&limit=4`
     })
     .then(response => {
+      console.log(response.data.results);
       this.setState({ products: response.data.results });
     })
   }
@@ -45,7 +46,9 @@ class List extends Component {
                     </div>
                     <div className='list__description'>
                       <p className='list__price'>$ {product.price}</p>
-                      <p className='list__title'>{product.title}</p>
+                      <a href={`p/${product.id}`}>
+                        <p className='list__title'>{product.title}</p>
+                      </a>
                       <p className='list__address'>{product.address.state_name}</p>
                     </div>
                   </li>

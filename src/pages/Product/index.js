@@ -1,7 +1,7 @@
 import React from 'react';
-import List from '../../components/List';
+import List from '../../components/Details';
 
-class Search extends React.Component {
+class Product extends React.Component {
   state = {
     search: [],
   }
@@ -20,4 +20,4 @@ class Search extends React.Component {
   };
 };
 
-export default Search;
+export default Product;

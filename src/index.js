@@ -11,6 +11,7 @@ import {
 import Header from './components/Header';
 import Home from './pages/Home';
 import Search from './pages/Search';
+import Product from './pages/Product';
 
 ReactDOM.render(
   <React.StrictMode>
@@ -18,7 +19,8 @@ ReactDOM.render(
     <Router>
       <Switch>
         <Route exact path="/" component={Home} />
-        <Route path="/:id" component={Search} />
+        <Route exact path="/:id" component={Search} />
+        <Route exact path="/p/:id" component={Product} />
       </Switch>
     </Router>
   </React.StrictMode>,

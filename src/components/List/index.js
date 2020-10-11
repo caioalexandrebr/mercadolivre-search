@@ -18,7 +18,6 @@ class List extends Component {
       url: `https://api.mercadolibre.com/sites/MLA/search?q=${params}&limit=4`
     })
     .then(response => {
-      console.log(response.data.results);
       this.setState({ products: response.data.results });
     })
   }

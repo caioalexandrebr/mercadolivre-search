@@ -18,7 +18,6 @@ class Details extends Component {
       url: `https://api.mercadolibre.com/items/${params}`
     })
     .then(response => {
-      console.log(response);
       this.setState({ product: response.data.results });
     })
   }

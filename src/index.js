@@ -18,9 +18,9 @@ ReactDOM.render(
     <Header />
     <Router>
       <Switch>
-        <Route exact path="/" component={Home} />
-        <Route exact path="/:id" component={Search} />
-        <Route exact path="/p/:id" component={Product} />
+        <Route exact path='/' component={Home} />
+        <Route exact path='/:id' component={Search} />
+        <Route exact path='/p/:id' component={Product} />
       </Switch>
     </Router>
   </React.StrictMode>,

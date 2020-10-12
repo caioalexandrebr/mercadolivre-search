@@ -7,18 +7,19 @@ class Header extends React.Component {
   constructor(props) {
     super(props);
     this.state = { value: '' };
-
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   handleChange(event) {
-    this.setState({value: event.target.value});
+    const searchValue = event.target.value;
+    this.setState({ value: searchValue });
   }
 
   handleSubmit(event) {
     event.preventDefault();
-    window.location.href = this.state.value;
+    const searchValue = this.state.value;
+    window.location.href = `/${searchValue}`;
   }
 
   render() {
@@ -32,8 +33,10 @@ class Header extends React.Component {
                   <img src={Logo} alt='Mercado Livre' />
                 </a>
                 <form className='header__form' onSubmit={this.handleSubmit}>
-                  <input className='header__input' type="text" value={this.state.value} onChange={this.handleChange} placeholder='Buscar produtos, marcas e muito mais…' />
-                  <button className='header__button' type="submit"><img src={Search} alt='Search' /></button>
+                  <input className='header__input' type='text' value={this.state.value} onChange={this.handleChange} placeholder='Buscar produtos, marcas e muito mais…' />
+                  <button className='header__button' type='submit'>
+                    <img src={Search} alt='Search' />
+                  </button>
                 </form>
               </div>
             </div>

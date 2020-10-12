@@ -8,8 +8,8 @@ class Search extends React.Component {
   }
 
   async componentDidMount() {
-    const id = this.props.match.params.id;
-    this.setState({ search: id });
+    const search = this.props.match.params.id;
+    this.setState({ search });
   }
 
   render() {

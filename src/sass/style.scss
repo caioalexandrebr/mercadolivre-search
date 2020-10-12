@@ -4,6 +4,7 @@ $white: white;
 $black: black;
 
 $alpha: #fff159;
+$bravo: #3483FA;
 
 $gray-alpha: #333333;
 $gray-bravo: #999999;
@@ -16,5 +17,25 @@ $gray-charlie: #EEEEEE;
 @import '../components/List/style';
 
 body {
+  min-height: 100vh;
+  padding-bottom: 15px;
   background: $gray-charlie;
+}
+
+.button {
+  color: $white;
+  border-radius: 4px;
+  padding: 10px 20px;
+  background: $bravo;
+
+  &:hover {
+    color: $white;
+    text-decoration: none;
+  }
+
+  &--fluid {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
 }

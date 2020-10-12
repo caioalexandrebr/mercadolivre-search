@@ -1,5 +1,6 @@
 import React from 'react';
-import List from '../../components/Details';
+import Breadcrumb from '../../components/Breadcrumb';
+import Details from '../../components/Details';
 
 class Product extends React.Component {
   state = {
@@ -15,7 +16,10 @@ class Product extends React.Component {
     const { search } = this.state;
 
     return (
-      <List params={search} />
+      <>
+        <Breadcrumb />
+        <Details params={search} />
+      </>
     );
   };
 };

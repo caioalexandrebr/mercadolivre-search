@@ -1,4 +1,42 @@
 .details {
-  background: white;
-  padding: 32px;
+  &__content {
+    background: $white;
+    border-radius: 4px;
+    padding: 32px;
+  }
+
+  &__image {
+    width: 100%;
+  }
+
+  &__status {
+    font-size: 14px;
+  }
+
+  &__title {
+    font-size: 24px;
+    font-weight: bold;
+  }
+
+  &__price {
+    font-size: 46px;
+  }
+
+  &__margin {
+    margin-bottom: 32px;
+
+    &--reset {
+      margin-bottom: 0;
+    }
+  }
+
+  &__description {
+    color: $gray-bravo;
+    font-size: 16px;
+
+    &--title {
+      color: $gray-alpha;
+      font-size: 28px;
+    }
+  }
 }

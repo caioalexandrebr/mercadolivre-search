@@ -5,7 +5,7 @@ function Breadcrumb() {
     <section className='breadcrumb'>
       <div className='container'>
         <div className='row'>
-          <div className='col-12'>
+          <div className='col-12 col-md-10 offset-md-1'>
             <span><a href='/'>Informática</a></span>
             <span><a href='/'>Acessórios para PC Gaming</a></span>
             <span><a href='/'>Fones</a></span>
@@ -14,6 +14,6 @@ function Breadcrumb() {
       </div>
     </section>
   );
-}
+};
 
 export default Breadcrumb;

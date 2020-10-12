@@ -9,25 +9,27 @@ class Header extends React.Component {
     this.state = { value: '' };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
-  }
+  };
 
   handleChange(event) {
     const searchValue = event.target.value;
     this.setState({ value: searchValue });
-  }
+  };
 
   handleSubmit(event) {
     event.preventDefault();
-    const searchValue = this.state.value;
-    window.location.href = `/${searchValue}`;
-  }
+    if (this.state.value) {
+      const searchValue = this.state.value;
+      window.location.href = `/${searchValue}`;
+    }
+  };
 
   render() {
     return (
       <section className='header'>
         <div className='container'>
           <div className='row'>
-            <div className='col-12'>
+            <div className='col-12 col-md-8 offset-md-1'>
               <div className='header__content'>
                 <a className='header__logo' href='/'>
                   <img src={Logo} alt='Mercado Livre' />
@@ -45,6 +47,6 @@ class Header extends React.Component {
       </section>
     );
   }
-}
+};
 
 export default Header;

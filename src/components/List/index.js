@@ -5,12 +5,12 @@ const axios = require('axios');
 class List extends Component {
   state = {
     products: [],
-  }
+  };
 
   constructor() {
     super();
     this.fetchUser = this.fetchProducts.bind(this);
-  }
+  };
 
   fetchProducts = (params) => {
     return axios({
@@ -20,14 +20,14 @@ class List extends Component {
     .then(response => {
       this.setState({ products: response.data.results });
     })
-  }
+  };
 
   componentDidMount() {
     setTimeout(() => {
       const params = this.props.params;
       this.fetchProducts(params);
     });
-  }
+  };
 
   render() {
     const { products } = this.state;
@@ -36,18 +36,20 @@ class List extends Component {
       <section className='list'>
         <div className='container'>
           <div className='row'>
-            <div className='col-12'>
+            <div className='col-12 col-md-10 offset-md-1'>
               <ul className='list__content'>
                 {products.map(product => (
                   <li key={product.id} className='list__card'>
                     <div className='list__image'>
-                      <img src={product.thumbnail} alt={product.title} />
+                      <a href={`p/${product.id}`}>
+                        <img src={product.thumbnail} alt={product.title} />
+                      </a>
                     </div>
                     <div className='list__description'>
-                      <p className='list__price'>$ {product.price}</p>
-                      <a href={`p/${product.id}`}>
-                        <p className='list__title'>{product.title}</p>
-                      </a>
+                      <div>
+                        <p className='list__price'>$ {parseFloat(product.price).toLocaleString('es-ES', { minimumFractionDigits: 2 })}</p>
+                        <a className='list__title' href={`p/${product.id}`}>{product.title}</a>
+                      </div>
                       <p className='list__address'>{product.address.state_name}</p>
                     </div>
                   </li>

@@ -5,6 +5,7 @@ $black: black;
 
 $alpha: #fff159;
 $bravo: #3483FA;
+$charlie: #2968c8;
 
 $gray-alpha: #333333;
 $gray-bravo: #999999;
@@ -19,18 +20,21 @@ $gray-charlie: #EEEEEE;
 body {
   min-height: 100vh;
   padding-bottom: 15px;
+  color: $gray-alpha;
   background: $gray-charlie;
 }
 
 .button {
   color: $white;
-  border-radius: 4px;
+  border-radius: 6px;
   padding: 10px 20px;
-  background: $bravo;
+  transition: background-color .2s ease-in;
+  background-color: $bravo;
 
   &:hover {
     color: $white;
     text-decoration: none;
+    background-color: $charlie;
   }
 
   &--fluid {

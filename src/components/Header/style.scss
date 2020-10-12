@@ -29,7 +29,7 @@
     box-shadow: 0 1px 2px 0 rgba($black, 0.2);
     height: 100%;
     outline: none;
-    padding: 8px 60px 8px 6px;
+    padding: 8px 60px 8px 16px;
     width: 100%;
   }
 
@@ -42,6 +42,10 @@
     right: 0;
     top: 0;
     width: 46px;
+
+    img {
+      opacity: 0.5;
+    }
 
     &:focus {
       outline: 0

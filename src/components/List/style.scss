@@ -8,7 +8,7 @@
     background: $white;
     border-bottom: 1px solid $gray-charlie;
     display: flex;
-    height: 220px;
+    min-height: 180px;
     list-style: none;
     padding: 16px 8px;
     position: relative;
@@ -47,19 +47,52 @@
   }
 
   &__price {
+    font-size: 24px;
+    font-weight: 500;
     color: $gray-alpha;
-    font-weight: bold;
     margin-bottom: 16px;
   }
 
   &__title {
     color: $gray-alpha;
-    margin-bottom: 16px;
+
+    &:hover {
+      text-decoration: none;
+      color: $gray-alpha;
+    }
   }
 
   &__address {
     color: $gray-bravo;
     font-size: 12px;
+    margin-top: 16px;
     margin-bottom: 0;
+    white-space: nowrap;
+  }
+}
+
+@include media-breakpoint-up(md) {
+  .list {
+    &__card {
+      padding: 16px 32px 16px 16px;
+    }
+
+    &__description {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    &__address {
+      margin-top: 0;
+      margin-left: 15px;
+    }
+  }
+}
+
+@include media-breakpoint-up(xl) {
+  .list {
+    &__card {
+      padding: 16px 64px 16px 16px;
+    }
   }
 }

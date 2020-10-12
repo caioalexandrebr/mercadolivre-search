@@ -5,12 +5,12 @@ import List from '../../components/List';
 class Search extends React.Component {
   state = {
     search: [],
-  }
+  };
 
   async componentDidMount() {
     const search = this.props.match.params.id;
     this.setState({ search });
-  }
+  };
 
   render() {
     const { search } = this.state;

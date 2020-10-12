@@ -5,13 +5,14 @@ const axios = require('axios');
 class Details extends Component {
   state = {
     product: [],
-    description: []
-  }
+    description: [],
+    pictures: []
+  };
 
   constructor() {
     super();
     this.fetchUser = this.fetchProduct.bind(this);
-  }
+  };
 
   fetchProduct = (productId) => {
     return axios({
@@ -19,10 +20,15 @@ class Details extends Component {
       url: `https://api.mercadolibre.com/items/${productId}`
     })
     .then(response => {
-      console.log(response.data);
-      this.setState({ product: response.data });
-    })
-  }
+      let pictures = [];
+      const product = response.data;
+      response.data.pictures.map(picture => {
+        pictures = [...pictures, picture.url]
+        return pictures;
+      });
+      this.setState({ product, pictures });
+    });
+  };
 
   fetchDescription = (productId) => {
     return axios({
@@ -30,9 +36,10 @@ class Details extends Component {
       url: `https://api.mercadolibre.com/items/${productId}/description`
     })
     .then(response => {
-      this.setState({ description: response.data.plain_text });
-    })
-  }
+      const description = response.data.plain_text
+      this.setState({ description });
+    });
+  };
 
   componentDidMount() {
     setTimeout(() => {
@@ -40,26 +47,28 @@ class Details extends Component {
       this.fetchProduct(productId);
       this.fetchDescription(productId);
     });
-  }
+  };
 
   render() {
-    const { product, description } = this.state;
+    const { product, description, pictures } = this.state;
+
+    const price = parseFloat(product.price).toLocaleString('es-ES', { minimumFractionDigits: 2 });
 
     return (
       <>
         <section className='details'>
           <div className='container'>
             <div className='row'>
-              <div className='col-12'>
+              <div className='col-12 col-md-10 offset-md-1'>
                 <div className='details__content'>
                   <div className='row'>
                     <div className='col-12 col-md-6'>
-                      <img className='details__image' src={product.thumbnail} alt={product.title} />
+                      <img className='details__image details__margin' src={pictures[0]} alt={product.title} />
                     </div>
-                    <div className='col-12 col-md-3 offset-md-1'>
-                      <p className='details__status'>{product.condition === 'new' ? 'Nuevo' : 'expr2'} - {product.sold_quantity} vendidos</p>
+                    <div className='col-12 col-md-4 offset-md-1'>
+                      <p className='details__status'>{product.condition === 'new' ? 'Nuevo' : 'Usado'} - {product.sold_quantity} vendidos</p>
                       <p className='details__title details__margin'>{product.title}</p>
-                      <p className='details__price details__margin'>$ {product.price}</p>
+                      <p className='details__price details__margin'>$ {price}</p>
                       <a className='button button--fluid details__margin' href={product.permalink}>Comprar</a>
                     </div>
                     <div className='col-12 col-md-7'>

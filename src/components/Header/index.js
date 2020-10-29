@@ -1,52 +1,41 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import Logo from '../../img/logo.svg';
 import Search from '../../img/search.png';
 
-class Header extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = { value: '' };
-    this.handleChange = this.handleChange.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
+const Header = () => {
+  const [value, setValue] = useState('');
+
+  const handleChange = (event) => {
+    setValue(event.target.value);
   };
 
-  handleChange(event) {
-    const searchValue = event.target.value;
-    this.setState({ value: searchValue });
-  };
-
-  handleSubmit(event) {
+  const handleSubmit = (event) => {
     event.preventDefault();
-    if (this.state.value) {
-      const searchValue = this.state.value;
-      window.location.href = `/${searchValue}`;
-    }
+    (value) && (window.location.href = `/${value}`);
   };
 
-  render() {
-    return (
-      <section className='header'>
-        <div className='container'>
-          <div className='row'>
-            <div className='col-12 col-md-8 offset-md-1'>
-              <div className='header__content'>
-                <a className='header__logo' href='/'>
-                  <img src={Logo} alt='Mercado Livre' />
-                </a>
-                <form className='header__form' onSubmit={this.handleSubmit}>
-                  <input className='header__input' type='text' value={this.state.value} onChange={this.handleChange} placeholder='Buscar produtos, marcas e muito mais…' />
-                  <button className='header__button' type='submit'>
-                    <img src={Search} alt='Search' />
-                  </button>
-                </form>
-              </div>
+  return (
+    <section className='header'>
+      <div className='container'>
+        <div className='row'>
+          <div className='col-12 col-md-8 offset-md-1'>
+            <div className='header__content'>
+              <a className='header__logo' href='/'>
+                <img src={Logo} alt='Mercado Livre' />
+              </a>
+              <form className='header__form' onSubmit={handleSubmit}>
+                <input className='header__input' type='text' value={value} onChange={handleChange} placeholder='Buscar produtos, marcas e muito mais…' />
+                <button className='header__button' type='submit'>
+                  <img src={Search} alt='Search' />
+                </button>
+              </form>
             </div>
           </div>
         </div>
-      </section>
-    );
-  }
+      </div>
+    </section>
+  );
 };
 
 export default Header;

@@ -6,10 +6,6 @@ import Search from '../../img/search.png';
 const Header = () => {
   const [value, setValue] = useState('');
 
-  const handleChange = (event) => {
-    setValue(event.target.value);
-  };
-
   const handleSubmit = (event) => {
     event.preventDefault();
     (value) && (window.location.href = `/${value}`);
@@ -25,7 +21,7 @@ const Header = () => {
                 <img src={Logo} alt='Mercado Livre' />
               </a>
               <form className='header__form' onSubmit={handleSubmit}>
-                <input className='header__input' type='text' value={value} onChange={handleChange} placeholder='Buscar produtos, marcas e muito mais…' />
+                <input className='header__input' type='text' value={value} onChange={event => setValue(event.target.value)} placeholder='Buscar produtos, marcas e muito mais…' />
                 <button className='header__button' type='submit'>
                   <img src={Search} alt='Search' />
                 </button>
